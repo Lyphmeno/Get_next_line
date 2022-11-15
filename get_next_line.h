@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   testMain.c                                         :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 11:24:53 by hlevi             #+#    #+#             */
-/*   Updated: 2022/11/14 13:58:10 by hlevi            ###   ########.fr       */
+/*   Created: 2022/11/14 11:39:02 by hlevi             #+#    #+#             */
+/*   Updated: 2022/11/15 14:00:11 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-int	main(int ac, char **av)
-{
-	char	*line;
-	int		newFd;
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
 
-	if (ac == 2)
-	{
-		newFd = open(av[1], O_RDONLY);
-		line = get_next_line(newFd);
-		printf("%s\n", line);
-		while (line != NULL)
-		{
-			printf("%s\n", line);
-			free(line);
-			line = get_next_line(newFd);
-		}
-		close(newFd);
-	}
-	return (0);
-}
+# include <unistd.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <string.h>
+# include <fcntl.h>
+
+//	UTILS
+size_t	gnl_strlen(char *s);
+char	*gnl_strchr(char *s, int c);
+char	*gnl_strjoin(char *s1, char *s2);
+
+//	BASE
+char	*get_next_line(int fd);
+
+#endif
