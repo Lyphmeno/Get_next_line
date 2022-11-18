@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 11:35:00 by hlevi             #+#    #+#             */
-/*   Updated: 2022/11/17 17:09:02 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/11/18 13:13:37 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,19 +103,4 @@ char	*get_next_line(int fd)
 	line = get_line(buffer[fd]);
 	buffer[fd] = buf_reset(buffer[fd]);
 	return (line);
-}
-
-int	main(int ac, char **av)
-{
-	(void)ac;
-	int fd = open(av[1], O_RDONLY);
-	char	*line;
-
-	while ((line = get_next_line(fd)))
-	{
-		printf("%s", line);
-		free(line);
-	}
-	close(fd);
-	return (0);
 }
