@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <body>
-  <h1>Get next line Project : <a href="https://github.com/JaeSeoKim/badge42"><img src="https://badge42.vercel.app/api/v2/cljbd5ceo007308mltneinai5/project/2903342" alt="hlevi's 42 cub3d Score" /></a></h1>
+  <h1>Get next line Project :</a></h1>
   <p>Welcome to the GNL project !</p>
   <p>The goal of GNL is to returns a line read from a file descriptor.</p>
   
